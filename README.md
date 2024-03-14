@@ -98,3 +98,4 @@ We then easily calculate upper limits by using scipy.interp1d as the no.of value
 - Using the above techniques, the computation time is reduced to ~ 2 hours.
 
 
+# LHASSO_IceCube
