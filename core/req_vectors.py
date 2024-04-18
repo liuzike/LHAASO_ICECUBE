@@ -83,6 +83,7 @@ mspdata = all_data.mspdata
 lhsadata1=all_data.lhassodata1
 lhsadata2=all_data.lhassodata2
 icbtrack_data=all_data.icbtrackdata
+hessdata=all_data.hessdata
 all_data = []
 
 #ICECUBE DATA VECTORS
@@ -155,3 +156,9 @@ icetrackra=np.asfarray([float(i) for i in icbtrack_data['RA'].values], dtype=str
 icetrackdec=np.asfarray([float(i) for i in icbtrack_data['DEC'].values], dtype=str)
 icetrackdeng=(np.asfarray([float(i) for i in icbtrack_data['DEC_ERR_PLUS'].values], dtype=str)+np.asfarray([float(i) for i in icbtrack_data['DEC_ERR_PLUS'].values], dtype=str))*0.5
 icetracke=np.asfarray([float(i) for i in icbtrack_data['ENERGY'].values], dtype=str)
+
+
+#HESS SOURCE VECTOR
+
+hess_ra=np.asfarray([float(i) for i in hessdata['RA'].values], dtype=str)
+hess_dec=np.asfarray([float(i) for i in hessdata['Decl'].values], dtype=str)

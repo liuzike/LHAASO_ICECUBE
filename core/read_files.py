@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 #### IMPORTING AND SPLITTING ICDATA $$$
-# master_path = os.getcwd()
+#master_path = os.getcwd()
 
 
 
@@ -139,4 +139,7 @@ class Data(): # type: ignore
         #IMPORT ICECUBE_TRACKDATA
         icbtrackdata=pd.read_csv(master_path + "icecube_tracks.csv")
         self.icbtrackdata=icbtrackdata
+        #IMPORT HESS_DATA
+        hessdata=pd.read_csv(master_path + "hess_source.csv")
+        self.hessdata=hessdata 
 # print(Data('/media/darkwake/VIB2/IceCube-Package/Project-IceCube/package/data/').season_length)
