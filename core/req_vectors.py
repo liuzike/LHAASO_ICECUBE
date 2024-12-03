@@ -97,6 +97,8 @@ upstop_ttt = np.asfarray([uptdata[i]['MJD_stop[days]'].values[-1] for i in range
 upstart_ttt = np.asfarray([uptdata[i]['MJD_start[days]'].values[0] for i in range(len(uptdata))], dtype=np.float64)
 vec_uptparts = np.asarray(upt_icparts, dtype=np.int64)
 upt_icparts = np.asarray(upt_icparts)
+t_upt1 = np.asfarray([np.sum(uptdata[i]['MJD_stop[days]'].values-uptdata[i]['MJD_start[days]'].values) for i in
+                       range(len(uptdata))], dtype=np.float64)*86400
 t_upt = np.asarray([upstop_ttt[season] - upstart_ttt[season] for season in range(len(upstart_ttt))])*86400 #Convert days to seconds
 #t_upt in seconds
 icra = np.array([float(i) for i in icdata['RA[deg]']], dtype=np.float64)              #RA in degrees
@@ -143,9 +145,15 @@ deg2rad_var = np.pi/180
 # mspdata = []
 #LHSAAO SOURCE VECTOR
 lhsaao1ra=np.asfarray([float(i) for i in lhsadata1['RA'].values], dtype=str)
+lhsaao1name=[i for i in lhsadata1['Source_name'].values]
 lhsaao1dec=np.asfarray([float(i) for i in lhsadata1['DEC'].values], dtype=str)
+lhsaao1fnu=np.asfarray([float(i) for i in lhsadata1['N0'].values], dtype=str)
+lhsaao1fnu_nor=lhsaao1fnu/np.sum(lhsaao1fnu)
 lhsaao2ra=np.asfarray([float(i) for i in lhsadata2['RA'].values], dtype=str)
+lhsaao2name=[i for i in lhsadata2['Source_name'].values]
 lhsaao2dec=np.asfarray([float(i) for i in lhsadata2['DEC'].values], dtype=str)
+lhsaao2fnu=np.asfarray([float(i) for i in lhsadata2['N0 '].values], dtype=str)
+lhsaao2fnu_nor=lhsaao2fnu/np.sum(lhsaao2fnu)
 global p1,p2
 p1=len(lhsaao1ra)
 p2=len(lhsaao2ra)
@@ -161,4 +169,7 @@ icetracke=np.asfarray([float(i) for i in icbtrack_data['ENERGY'].values], dtype=
 #HESS SOURCE VECTOR
 
 hess_ra=np.asfarray([float(i) for i in hessdata['RA'].values], dtype=str)
+hess_name=[i for i in hessdata['\xa0Name'].values]
 hess_dec=np.asfarray([float(i) for i in hessdata['Decl'].values], dtype=str)
+hessfnu=np.asfarray([float(i) for i in hessdata['Flux \xa0(max)\xa0[C.U.]'].values], dtype=str)
+
