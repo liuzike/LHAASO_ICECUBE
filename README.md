@@ -1,7 +1,6 @@
-<<<<<<< HEAD
-## **STACKED SEARCH FOR CORRELATION BETWEEN ICECUBE NEUTRINOS AND RADIO PULSARS**
+## A search for the neutrino signals from the LHAASO and H.E.S.S. gamma-ray sources
 
-This repository contains the code used to perform the analysis described in the paper "Stacked Search for Correlation Between IceCube Neutrinos and Radio Pulsars" (https://arxiv.org/abs/23xx.xxxxx). The code is written in Python 3.10 and uses the following packages: numpy, scipy, matplotlib, pandas, numba, multiprocessing. The code is provided as is, without any warranty. If you use this code, please cite the paper.
+This repository contains the code used to perform the analysis described in the paper "A search for the neutrino signals from the LHAASO and H.E.S.S. gamma-ray sources" . The code is written in Python 3.8 and uses the following packages: numpy, scipy, matplotlib, pandas, numba, multiprocessing.
 
 ### **Description of the code**
 
@@ -10,24 +9,29 @@ The repository is organized as follows:
     - core
     - data
     - outputs
+    - task4k_single_analysis.ipynb : an correlation  analysis between single gamma-ray source(Separated into WCDA-H.E.S.S. and KM2A-H.E.S.S. lists) and IceCube track events
+    - task4k_stacking_analysis1_1.ipynb: constraints on neutrino flux from the LHASSO-WCDA-HESS sources based on  stacking analysis under the uniform weighting scheme.
+    - task4k_stacking_analysis1_2.ipynb: constraints on neutrino flux from the LHASSO-KM2A-HESS sources based on  stacking analysis under the flux weighting scheme.
 
 
 #### **core**
 
 The core/ directory contains the following files:
 
-- download_ATNF.py : downloads the ATNF pulsar catalogue and saves it in data/ATNF.txt
 - download_IC.py : downloads the IceCube neutrino data package and saves it in data/icecube_10year_ps
-- stacking_analysis.py : defines the functions used to calculate the Test statistic, and the signal flux model and other miscellaneous functions used in the analysis indicated in the paper https://arxiv.org/abs/23xx.xxxxx
-- req_arrays.py : Stores the required data in the form of numpy arrays for faster and easier computation
-- readfiles.py : Reads and refines the data from the files and stores them in the form of panda.Dataframes
-- signal_bag.py : defines the functions used to compute the Signal and Background PDF in the analysis indicated in the paper https://arxiv.org/abs/23xx.xxxxx
-- weights.py : (depercated) defines the functions used to compute the weights of pulsars for the analysis indicated in the paper https://arxiv.org/abs/23xx.xxxxx
 
-This code is tested against the4 CHIME/FRB data to check whether the code runs correctly. The files are:
-- sig_bag_CHIME.py : Has the same functions as in signal_bag.py but are tested with CHIME/FRB data to check whether the  code runs correctly
-- req_arrays_CHIME.py : Replicates the functions in req_arrays.py but for CHIME/FRB data
-- readfiles_CHIME.py : Replicates the functions in readfiles.py but for CHIME/FRB data
+- stacking_analysis.py : defines the functions used to calculate the Test statistic, and the signal flux model and other miscellaneous functions used in the analysis 
+
+- req_arrays.py : Stores the required data in the form of numpy arrays for faster and easier computation
+
+- readfiles.py : Reads and refines the data from the files and stores them in the form of panda.Dataframes
+
+- signal_bag.py : defines the functions used to compute the Signal and Background PDF in the analysis 
+
+- weights.py : (depercated) defines the functions used to compute the weights of pulsars for the analysis 
+
+- plots.ipynb : plot the fig1 in this paper, a skymap describe all gamma-ray and neutrino events in our analysis
+
 
 #### **data**
 
@@ -35,9 +39,8 @@ The data/ directory contains the data used in the analysis. The data are taken f
 
 - The IceCube neutrino data are taken from the public HESE and EHE data releases (http://icecube.wisc.edu/data-releases/20210126_PS-IC40-IC86_VII.zip). The data are stored in the data/icecube_10year_ps/ directory. The IceCube contains observations spanning over 10 years and is separated into 10 files, each corresponding to 1 year/1 IceCube season.
 
-- The radio pulsar data are taken from the ATNF pulsar catalogue (https://www.atnf.csiro.au/research/pulsar/psrcat/).
 
-- The CHIME/FRB data are taken from the CHIME/FRB collaboration (https://www.chime-frb.ca/).
+- The LHAASO data catalogue are taken from 2024 ApJS 271 25 and HESS catalogue (https://www.mpi-hd.mpg.de/hfm/HESS/pages/home/sources/).
 
 
 #### **outputs**
@@ -98,47 +101,3 @@ We then easily calculate upper limits by using scipy.interp1d as the no.of value
 
 - Using the above techniques, the computation time is reduced to ~ 2 hours.
 
-
-# LHASSO_IceCube
-# LHASSO_IceCube
-=======
-# LHASSO-Icecube
-
-#### 介绍
-{**以下是 Gitee 平台说明，您可以替换此简介**
-Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
-
-#### 软件架构
-软件架构说明
-
-
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
->>>>>>> ffb636b1499b9c07471511bf911062a46016d7e7
