@@ -86,16 +86,6 @@ The Likelihood of $\hat{n}_s$ signal events is given by:
 We then easily calculate upper limits by using scipy.interp1d as the no.of values required are less
     
 
-#### **Solution to the computational challenges**
-- This is a very large number of values to compute. To overcome this challenge, we use the following techniques:
-
-- Use the numba.njit package to speed up the computation. The numba package is used to compile the python code into machine code. 
-
-- The integrals are evaluated using functions accelerated by numba.vectorize package and np.trapz, which is faster than scipy.quad or scipy.dblquad.
-
-- Used numba.vectorize package to replace a for loop calling functions like `ns_sing_season`, `psr_wt_acc`. This reduce the computation time by a factor of 10.
-
-- Used numba.prange to parallelize the computation. The prange package is used to run the code in parallel on multiple cores of the CPU. (Previously used python.multiprocessing. But it consumes a lot of memory and removes the numba acceleration so multiprocessing parts are depercated)
 
 - Running the code normally requires ~ 2e12 calculations which take > 2 days of continuous computation.
 
